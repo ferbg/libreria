@@ -1,0 +1,27 @@
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center"
+*ngIf="!libros">
+    <app-loader></app-loader>
+</div>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center"
+     *ngIf="libros">
+    <div class="col"
+         *ngFor="let libro of libros; index as indice">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 fw-normal">{{libro.titulo}}</h4>
+            </div>
+            <div class="card-body">
+                <!-- <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1> -->
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>{{libro.autor}}</li>
+                    <li *ngIf="indice===1">
+                        <span class="badge bg-primary">Best seller</span></li>
+                </ul>
+                <button type="button"
+                        [routerLink]="['/libros', libro.id]"
+                        routerLinkActive="active"
+                        class="w-100 btn btn-lg btn-outline-primary">More info</button>
+            </div>
+        </div>
+    </div>
+</div>
