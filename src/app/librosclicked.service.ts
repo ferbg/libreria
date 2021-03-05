@@ -14,7 +14,6 @@ export class LibrosclickedService {
 
   visto(libro : any) {
     this.libros.push(libro);
-    console.info( "this.libros", this.libros );
   }
 
   /**
@@ -22,5 +21,12 @@ export class LibrosclickedService {
    */
   public getLibros() : Observable<any> {
     return this.httpClient.get("assets/libros.json");
+  }
+
+  /**
+   * getClicked
+   */
+  public getClicked() {
+    return this.libros;
   }
 }
